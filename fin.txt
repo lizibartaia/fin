@@ -1,0 +1,101 @@
+https://github.com/patrickgod/EntityFramework7Relationships
+
+
+
+
+* public static class CategoryConstants
+{
+    public const string Gold = "gold";
+    public const string Grey = "grey";
+    public const string Silver = "silver";
+}
+
+public class YourClass
+{
+    public string PropertyCategory { get; set; }
+
+    public YourClass(string category)
+    {
+        SetCategory(category);
+    }
+
+    public void SetCategory(string category)
+    {
+        if (category != CategoryConstants.Gold && category != CategoryConstants.Grey && category != CategoryConstants.Silver)
+        {
+            throw new ArgumentException("Invalid category value");
+        }
+        PropertyCategory = category;
+    }
+}
+
+
+mainshi gamodzaxeba
+YourClass yourObject = new YourClass(CategoryConstants.Gold);
+
+// Or set category later
+yourObject.SetCategory(CategoryConstants.Silver);
+
+// Access the category
+string currentCategory = yourObject.PropertyCategory;
+
+
+https://github.com/patrickgod/EntityFramework7Relationships/blob/master/EntityFramework7Relationships/Models/Weapon.cs
+
+sheidzleba aseve enumit
+using System.Collections.Generic;
+
+namespace final_lb.Model
+{
+    public class Customer
+    {
+        public int Id { get; set; }
+        public int PiD { get; set; }
+        public string? Name { get; set; }
+        public List<Product>? Products { get; set; }
+        public Category CustomerCategory { get; set; }
+    }
+
+    public enum Category
+    {
+        Silver,
+        Gold,
+        Platinum
+    }
+}
+
+
+-----aseve sheidzleba ese
+using System.Collections.Generic;
+
+namespace final_lb.Model
+{
+    public class Product
+    {
+        public int ProductId { get; set; }
+        public string ProductName { get; set; }
+    }
+
+    public class Customer
+    {
+        public int CustomerId { get; set; }
+        public int PiD { get; set; }
+        public string Name { get; set; }
+        public List<Product> Products { get; set; }
+        public CustomerCategory CustomerCategory { get; set; }
+    }
+
+    public class CustomerCategory
+    {
+        public Category CategoryType { get; set; }
+    }
+
+    public enum Category
+    {
+        Silver,
+        Gold,
+        Platinum
+    }
+}
+
+ */
